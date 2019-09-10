@@ -9,15 +9,19 @@
 
 library(stats)
 
-arr <- array(0,10)
-for (i in 1:10){
-  arr[i] <- if (runif(1) < 0.1) 1 else 0
+number_of_flips <- 10
+number_of_replicates <- 100
+probability_of_heads <- 0.1
+
+replicate_outcome <- array(0,10)
+for (i in 1:number_of_flips){
+  arr[i] <- if (runif(1) < probability_of_heads) 1 else 0
 }
 
-for (j in 1:100){
-  arr <- array(0,10)
-  for (i in 1:10){
-    arr[i] <- if (runif(1) < 0.1) 1 else 0
+for (j in 1:number_of_replicates){
+  replicate_outcome <- array(0,10)
+  for (i in 1:number_of_flips){
+    replicate_outcome[i] <- if (runif(1) < probability_of_heads) 1 else 0
   }
-  print(arr)
+  print(replicate_outcome)
 }
